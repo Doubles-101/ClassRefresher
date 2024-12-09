@@ -118,4 +118,37 @@ public class Program3
 }
 
 
+// abstract test
+public abstract class Vehicle
+{
+    public abstract string Start();
+}
+
+public class Car : Vehicle
+{
+    public override string Start()
+    {
+        return "Car starts with a key.";
+    }
+}
+
+public class Motorcycle : Vehicle
+{
+    public override string Start()
+        {
+            return "Motorcycle starts with a button.";
+        }
+}
+
+class Program4
+{
+    public static void Main()
+    {
+        Vehicle car = new Car();
+        Vehicle motorcycle = new Motorcycle();
+
+        Console.WriteLine(car.Start());
+        Console.WriteLine(motorcycle.Start());
+    }
+}
 
