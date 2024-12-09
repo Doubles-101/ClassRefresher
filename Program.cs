@@ -118,7 +118,7 @@ public class Program3
 }
 
 
-// abstract test
+// abstract case
 public abstract class Vehicle
 {
     public abstract string Start();
@@ -152,3 +152,61 @@ class Program4
     }
 }
 
+
+// encapsulation case
+public class BankAccount
+{
+    private double _balance;
+
+    public void Deposit(double amount)
+    {
+        if (amount > 0)
+        {
+            _balance += amount;
+            Console.WriteLine($"Depositing ${amount}...");
+        }
+        else{
+            Console.WriteLine($"Please enter a proper amount");
+        }
+    }
+
+    public void Withdraw(double amount)
+    {
+        if (amount > 0 && amount <= _balance)
+        {
+            _balance -= amount;
+            Console.WriteLine($"Withdrawing ${amount}...");
+        }
+        else if (amount > _balance)
+        {
+            Console.WriteLine("Insufficient balance.");
+        }
+        else
+        {
+            Console.WriteLine("Please enter a proper amount.");
+        }
+    }
+
+    public double GetBalance()
+    {
+        return _balance;
+    }
+}
+
+
+class Program5
+{
+    public static void Main()
+    {
+        BankAccount account = new BankAccount();
+        
+        account.Deposit(100);
+        Console.WriteLine($"Current Balance: ${account.GetBalance()}");
+
+        account.Withdraw(30);
+        Console.WriteLine($"Current Balance: ${account.GetBalance()}");
+
+        account.Withdraw(100);
+        Console.WriteLine($"Current Balance: ${account.GetBalance()}");
+    }
+}
